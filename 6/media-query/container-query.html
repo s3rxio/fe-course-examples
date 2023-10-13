@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" class="page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>container query</title>
+    <style>
+        /* Page */
+
+        .page,
+        .page__body {
+            height: 100%;
+        }
+
+        .page {
+            font-family: sans-serif;
+        }
+
+        .page__body {
+            margin: 0;
+            display: grid;
+            grid-template-rows:
+                    min-content
+                    1fr
+                    min-content
+                    min-content;
+        }
+
+        @media (min-width: 600px) {
+            .page__body {
+                grid-template-columns: 300px 1fr;
+            }
+        }
+
+        /* Header */
+
+        .header {
+            padding: 20px;
+            background-color: #d97260;
+        }
+
+        @media (min-width: 600px) {
+            .header {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* Main */
+
+        .main {
+            display: grid;
+            row-gap: 20px;
+            align-content: start;
+            padding: 20px;
+            background-color: ivory;
+
+        }
+
+        @media (min-width: 600px) {
+            .main {
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+        }
+
+        /* Aside */
+
+        .aside {
+            padding: 20px;
+            background-color: wheat;
+        }
+
+        @media (min-width: 600px) {
+            .aside {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+        }
+
+        /* Footer */
+
+        .footer {
+            padding: 20px;
+            background-color: plum;
+        }
+
+        @media (min-width: 600px) {
+            .footer {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* News */
+
+        .news-container {
+            container-type: inline-size;
+        }
+
+        .news {
+            display: grid;
+            background-color: aqua;
+        }
+
+        @container (min-width: 600px) {
+            .news {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+
+        .news__title {
+            margin: 0;
+            padding: 15px;
+            padding-bottom: 0;
+            font-weight: normal;
+        }
+
+        .news__picture {
+            max-width: 100%;
+            order: -1;
+        }
+
+        @container (min-width: 600px) {
+            .news__picture {
+                grid-row: span 2;
+                align-self: stretch;
+            }
+        }
+
+        .news__lead {
+            margin: 0;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body class="page__body">
+<header class="header">
+    Шапка
+</header>
+<main class="main">
+    <div class="news-container">
+        <div class="news">
+            <h3 class="news__title">Lorem ipsum.</h3>
+            <img class="news__picture" src="src/images/picture.jpg" alt=""/>
+            <p class="news__lead">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem consequuntur cupiditate dolor
+                dolorum impedit, inventore iste maiores, necessitatibus nesciunt numquam optio perferendis quis
+                quisquam,
+                reprehenderit tempora unde velit vero?
+            </p>
+        </div>
+    </div>
+    <div class="news-container">
+        <div class="news">
+            <h3 class="news__title">Lorem ipsum.</h3>
+            <img class="news__picture" src="src/images/picture.jpg" alt=""/>
+            <p class="news__lead">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem consequuntur cupiditate dolor
+                dolorum impedit, inventore iste maiores, necessitatibus nesciunt numquam optio perferendis quis
+                quisquam,
+                reprehenderit tempora unde velit vero?
+            </p>
+        </div>
+    </div>
+    <div class="news-container">
+        <div class="news">
+            <h3 class="news__title">Lorem ipsum.</h3>
+            <img class="news__picture" src="src/images/picture.jpg" alt=""/>
+            <p class="news__lead">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem consequuntur cupiditate dolor
+                dolorum impedit, inventore iste maiores, necessitatibus nesciunt numquam optio perferendis quis
+                quisquam,
+                reprehenderit tempora unde velit vero?
+            </p>
+        </div>
+    </div>
+    <div class="news-container">
+        <div class="news">
+            <h3 class="news__title">Lorem ipsum.</h3>
+            <img class="news__picture" src="src/images/picture.jpg" alt=""/>
+            <p class="news__lead">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem consequuntur cupiditate dolor
+                dolorum impedit, inventore iste maiores, necessitatibus nesciunt numquam optio perferendis quis
+                quisquam,
+                reprehenderit tempora unde velit vero?
+            </p>
+        </div>
+    </div>
+</main>
+<aside class="aside">
+    <div class="news-container">
+        <div class="news">
+            <h3 class="news__title">Lorem ipsum.</h3>
+            <img class="news__picture" src="src/images/picture.jpg" alt=""/>
+            <p class="news__lead">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem consequuntur cupiditate dolor
+                dolorum impedit, inventore iste maiores, necessitatibus nesciunt numquam optio perferendis quis
+                quisquam,
+                reprehenderit tempora unde velit vero?
+            </p>
+        </div>
+    </div>
+</aside>
+<footer class="footer">
+    Подвал
+</footer>
+</body>
+</html>

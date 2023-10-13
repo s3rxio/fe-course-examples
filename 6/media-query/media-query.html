@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" class="page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Media query</title>
+    <style>
+        /* Page */
+
+        .page,
+        .page__body {
+            height: 100%;
+        }
+
+        .page {
+            font-family: sans-serif;
+        }
+
+        .page__body {
+            margin: 0;
+            display: grid;
+            /*
+                Данный стиль задает высоту блоков
+                1. Высота header'а = min-content => высота будет вычисляться в зависимости от контента
+                2. Высота main'а = 1fr (вычислится на основе оставшегося места)
+                3. Высота sidebar'а = вычислится на основе высоты контента, но поскольку
+                    находится в одном ряду с Main то будет такой же высоты (до тех пор пока не уйдет на другой ряд)
+                4. Высота footer'а будет вычисляться в зависимости от контента
+            */
+            grid-template-rows:
+                    min-content
+                    1fr
+                    min-content
+                    min-content;
+        }
+
+        @media (min-width: 600px) {
+            .page__body {
+                /*
+                    Когда размер экрана будет больше чем 600px, леайут делится на две части. Левая (aside) 300px, а правая занимает оставшееся место
+                */
+                grid-template-columns: 300px 1fr;
+            }
+        }
+
+        /* Header */
+
+        .header {
+            padding: 20px;
+            background-color: #d97260;
+        }
+
+        @media (min-width: 600px) {
+            .header {
+                /*
+                    Когда размер экрана будет больше чем 600px, шапка должна начинаться на первой линии, а закончится на последней
+                */
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* Main */
+
+        .main {
+            display: grid;
+            row-gap: 20px;
+            align-content: start;
+            padding: 20px;
+            background-color: ivory;
+        }
+
+        @media (min-width: 600px) {
+            .main {
+                /*
+                    Когда размер экрана будет больше чем 600px, мейн должен начинаться на 2й линии а заканчиваться на 3
+                    аналогично и для рядов
+                */
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+        }
+
+        /* Aside */
+
+        .aside {
+            padding: 20px;
+            background-color: wheat;
+        }
+
+        @media (min-width: 600px) {
+            .aside {
+                /*
+                    Когда размер экрана будет больше чем 600px, сайдбар должен начинаться на 1й линии а заканчиваться на 2
+                    аналогично и для рядов
+                */
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+        }
+
+        /* Footer */
+
+        .footer {
+            padding: 20px;
+            background-color: plum;
+        }
+
+        @media (min-width: 600px) {
+            .footer {
+                /*
+                 Когда размер экрана будет больше чем 600px, футер должен начинаться на первой линии, а закончится на последней
+                */
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* News */
+
+        .news {
+            display: grid;
+            background-color: aqua;
+        }
+
+        @media (min-width: 600px) {
+            .news {
+                /* Когда экран больше 600px делим карточку на две части, 1я занимает 1fr (картинка) вторая 2fr(текст)*/
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+
+        .news__title {
+            margin: 0;
+            padding: 15px;
+            padding-bottom: 0;
+            font-weight: normal;
+        }
+
+        .news__picture {
+            max-width: 100%;
+            order: -1;
+
+        }
+
+        @media (min-width: 600px) {
+            .news__picture {
+                /* Указываем, что наша картинка будет занимать две строки (строку у заголовка и у текста соответственно)*/
+                grid-row: span 2;
+                align-self: stretch; /* Вытягиваем картинку */
+            }
+        }
+
+        .news__lead {
+            margin: 0;
+            padding: 15px;
+        }
+
+
+    </style>
+</head>
+<body class="page__body">
+<header class="header">
+    Шапка
+</header>
+<main class="main">
+    <div class="news">
+        <h3 class="news__title">Lorem ipsum.</h3>
+        <img class="news__picture" src="src/images/picture.jpg" alt=""/>
+        <p class="news__lead">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem consequuntur cupiditate dolor
+            dolorum impedit, inventore iste maiores, necessitatibus nesciunt numquam optio perferendis quis quisquam,
+            reprehenderit tempora unde velit vero?
+        </p>
+    </div>
+    <div class="news">
+        <h3 class="news__title">Lorem ipsum.</h3>
+        <img class="news__picture" src="src/images/picture.jpg" alt=""/>
+        <p class="news__lead">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem consequuntur cupiditate dolor
+            dolorum impedit, inventore iste maiores, necessitatibus nesciunt numquam optio perferendis quis quisquam,
+            reprehenderit tempora unde velit vero?
+        </p>
+    </div>
+    <div class="news">
+        <h3 class="news__title">Lorem ipsum.</h3>
+        <img class="news__picture" src="src/images/picture.jpg" alt=""/>
+        <p class="news__lead">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem consequuntur cupiditate dolor
+            dolorum impedit, inventore iste maiores, necessitatibus nesciunt numquam optio perferendis quis quisquam,
+            reprehenderit tempora unde velit vero?
+        </p>
+    </div>
+    <div class="news">
+        <h3 class="news__title">Lorem ipsum.</h3>
+        <img class="news__picture" src="src/images/picture.jpg" alt=""/>
+        <p class="news__lead">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem consequuntur cupiditate dolor
+            dolorum impedit, inventore iste maiores, necessitatibus nesciunt numquam optio perferendis quis quisquam,
+            reprehenderit tempora unde velit vero?
+        </p>
+    </div>
+    <div class="news">
+        <h3 class="news__title">Lorem ipsum.</h3>
+        <img class="news__picture" src="src/images/picture.jpg" alt=""/>
+        <p class="news__lead">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem consequuntur cupiditate dolor
+            dolorum impedit, inventore iste maiores, necessitatibus nesciunt numquam optio perferendis quis quisquam,
+            reprehenderit tempora unde velit vero?
+        </p>
+    </div>
+</main>
+<aside class="aside">
+    Сайдбар
+</aside>
+<footer class="footer">
+    Подвал
+</footer>
+</body>
+</html>
