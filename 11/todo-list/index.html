@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="build/styles/index.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="wrapper__container rows todo-list">
+        <div class="task-input row">
+            <input type="text" placeholder="Add a Task" class="task-input__control row__spacer">
+            <button type="button" class="button task-input__button">Add task</button>
+        </div>
+
+        <ol class="list task-list task-list--uncompleted">
+            <li class="task-list__title task task--stub">Not Completed</li>
+        </ol>
+
+        <ol class="list task-list task-list--completed">
+            <li class="task-list__title task task--stub">Completed</li>
+        </ol>
+    </div>
+</div>
+<script src="src/index.js"></script>
+</body>
+</html>

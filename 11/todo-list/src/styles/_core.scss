@@ -1,0 +1,43 @@
+:root {
+  --row-gap: 8px;
+  --rows-gap: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  height: 100vh;
+  background: #364649;
+  padding: 10px;
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.button {
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  gap: var(--row-gap);
+
+  &__spacer {
+    flex: 1 0 auto;
+  }
+}
+
+.rows {
+  display: grid;
+  gap: var(--rows-gap);
+}
+
+.list {
+  list-style: none;
+}

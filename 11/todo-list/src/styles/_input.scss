@@ -1,0 +1,25 @@
+.task-input {
+  width: 100%;
+  display: flex;
+
+  &__control {
+    color: #ffffff;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    background: none;
+    padding: 10px;
+    font-size: 22px;
+    outline: none;
+  }
+
+  &__button {
+    background: #222;
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+  }
+}

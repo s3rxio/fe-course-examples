@@ -1,0 +1,24 @@
+.task {
+  padding: 18px;
+  font-size: 22px;
+  counter-increment: my-counter;
+
+  &--stub {
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__action {
+    float: right;
+    padding: 5px;
+    font-size: 28px;
+    line-height: 28px;
+    margin-right: 15px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+}

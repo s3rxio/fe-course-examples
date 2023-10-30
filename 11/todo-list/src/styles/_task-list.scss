@@ -1,0 +1,17 @@
+.task-list {
+  padding: 20px;
+  border-radius: 10px;
+
+  &--completed {
+    background: #00ff62;
+  }
+
+  &--uncompleted {
+    background: #e96969bb;
+  }
+
+  &__item {
+    width: 100%;
+    margin: 5px 0;
+  }
+}

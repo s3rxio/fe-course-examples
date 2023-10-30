@@ -1,0 +1,22 @@
+{
+  "name": "048-todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server",
+    "scss:build": "sass src/styles/index.scss build/styles/index.css",
+    "scss:watch": "sass --watch src/styles/index.scss build/styles/index.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "sass": "^1.69.5"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
